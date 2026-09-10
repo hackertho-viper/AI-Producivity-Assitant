@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 import { Disclaimer, EmptyState, Panel, PanelTitle } from "@/components/ai/ai-ui";
-import { moduleMeta, toolNav } from "@/lib/nav";
+import { moduleMeta, toolNav, type NavItem } from "@/lib/nav";
 import { useWorkspace } from "@/lib/workspace-store";
 
 export const Route = createFileRoute("/")({
