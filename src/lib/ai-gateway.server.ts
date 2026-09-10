@@ -37,7 +37,7 @@ export function createLovableAiGatewayProvider(lovableApiKey: string, initialRun
 }
 
 /** Model used by every module. Prompt logic stays per-module. */
-export const WORKPLACE_MODEL = "google/gemini-3.8-flash";
+export const WORKPLACE_MODEL = "openai/gpt-6-astra";
 
 /** Turns a gateway/SDK failure into a message that is safe and useful to show a user. */
 export function describeAiError(error: unknown): string {

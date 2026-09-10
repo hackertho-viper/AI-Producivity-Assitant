@@ -45,7 +45,7 @@ export const Route = createFileRoute("/tasks")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: TasksPage;
+  component: TasksPage,
 });
 
 const levels: readonly Level[] = ["high", "medium", "low"] as const;
