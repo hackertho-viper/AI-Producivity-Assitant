@@ -21,8 +21,8 @@ export type Task = {
   importance: Level;
   category: string;
   status: "active" | "completed";
-  priority?: Priority;
-  reasoning?: string;
+  priority?: Priority | undefined;
+  reasoning?: string | undefined;
   source: "manual" | "meeting-summarizer";
   createdAt: string;
 };

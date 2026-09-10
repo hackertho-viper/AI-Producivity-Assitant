@@ -10,8 +10,8 @@ export type EmailPromptInput = {
   audience: EmailAudience;
   tone: EmailTone;
   refinement: EmailRefinement;
-  currentSubject?: string;
-  currentBody?: string;
+  currentSubject?: string | undefined;
+  currentBody?: string | undefined;
 };
 
 const AUDIENCE_GUIDE: Record<EmailAudience, string> = {
