@@ -33,7 +33,7 @@ export const Route = createFileRoute("/settings")({
 });
 
 function SettingsPage() {
-  const { clearAll } = useWorkspace();
+  const { clearWorkspace } = useWorkspace();
   const [confirmReset, setConfirmReset] = useState(false);
 
   function handleReset() {
@@ -41,7 +41,7 @@ function SettingsPage() {
       setConfirmReset(true);
       return;
     }
-    clearAll();
+    clearWorkspace();
     setConfirmReset(false);
     toast.success("Workspace reset. All activity and drafts cleared.");
   }
@@ -49,8 +49,9 @@ function SettingsPage() {
   return (
     <div className="space-y-6 p-4 sm:p-6 lg:p-8">
       <PageIntro
+        eyebrow="Workspace"
         title="Settings & AI Guidelines"
-        subtitle="Control your workspace and understand how AI is used across the platform."
+        description="Control your workspace and understand how AI is used across the platform."
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -63,8 +64,11 @@ function SettingsPage() {
           <div className="mt-4 flex items-center gap-3">
             <PrimaryButton
               onClick={handleReset}
-              variant="secondary"
-              className={confirmReset ? "bg-destructive/10 text-destructive hover:bg-destructive/20" : ""}
+              className={
+                confirmReset
+                  ? "bg-destructive/10 text-destructive hover:bg-destructive/20"
+                  : ""
+              }
             >
               {confirmReset ? "Confirm clear workspace" : "Clear workspace data"}
             </PrimaryButton>
@@ -122,7 +126,9 @@ function SettingsPage() {
         </Panel>
       </div>
 
-      <Disclaimer className="max-w-none" />
+      <div className="max-w-none">
+        <Disclaimer />
+      </div>
     </div>
   );
 }

@@ -174,7 +174,7 @@ function Dashboard() {
         <Panel className="lg:col-span-2">
           <PanelTitle>Jump in</PanelTitle>
           <div className="mt-4 flex flex-col gap-2.5">
-            {[toolNav[0], toolNav[1], toolNav[4]].map((item) => (
+            {([toolNav[0], toolNav[1], toolNav[4]] as NavItem[]).map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
