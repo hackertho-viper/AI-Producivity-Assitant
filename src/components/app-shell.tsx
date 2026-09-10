@@ -5,7 +5,7 @@ import { useState, type ReactNode } from "react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { overviewNav, toolNav, workspaceNav, navForPath, type NavItem } from "@/lib/nav";
 
-function NavLinks({ items, onNavigate }: { items: NavItem[]; onNavigate?: () => void }) {
+function NavLinks({ items, onNavigate }: { items: NavItem[]; onNavigate?: (() => void) | undefined }) {
   return (
     <>
       {items.map((item) => (
@@ -54,7 +54,7 @@ function Brand() {
   );
 }
 
-function NavBody({ onNavigate }: { onNavigate?: () => void }) {
+function NavBody({ onNavigate }: { onNavigate?: (() => void) | undefined }) {
   return (
     <>
       <SectionLabel>Overview</SectionLabel>
@@ -74,7 +74,7 @@ function NavBody({ onNavigate }: { onNavigate?: () => void }) {
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const current = navForPath(pathname);
+  const current = navForPath(pathname) ?? overviewNav[0];
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">

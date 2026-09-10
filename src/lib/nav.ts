@@ -90,8 +90,8 @@ export const workspaceNav: NavItem[] = [
 
 export const allNav = [...overviewNav, ...toolNav, ...workspaceNav];
 
-export function navForPath(pathname: string): NavItem {
-  return allNav.find((item) => item.to === pathname) ?? overviewNav[0];
+export function navForPath(pathname: string): NavItem | undefined {
+  return allNav.find((item) => item.to === pathname);
 }
 
 export const moduleMeta: Record<ModuleKey | "system", { label: string; badge: string; colorClass: string; bgClass: string }> =

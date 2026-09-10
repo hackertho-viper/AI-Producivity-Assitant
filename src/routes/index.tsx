@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 import { Disclaimer, EmptyState, Panel, PanelTitle } from "@/components/ai/ai-ui";
-import { moduleMeta, toolNav } from "@/lib/nav";
+import { moduleMeta, toolNav, type NavItem } from "@/lib/nav";
 import { useWorkspace } from "@/lib/workspace-store";
 
 export const Route = createFileRoute("/")({
@@ -174,7 +174,7 @@ function Dashboard() {
         <Panel className="lg:col-span-2">
           <PanelTitle>Jump in</PanelTitle>
           <div className="mt-4 flex flex-col gap-2.5">
-            {[toolNav[0], toolNav[1], toolNav[4]].map((item) => (
+            {([toolNav[0], toolNav[1], toolNav[4]] as NavItem[]).map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
